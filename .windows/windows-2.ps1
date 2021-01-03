@@ -1,18 +1,3 @@
-function Install-CommandIfNotInstalled {
-    param (
-        [String][Parameter(Mandatory=$true)]$PackageName,
-        [String][Parameter(Mandatory=$true)]$CheckCommand,
-        $InstallCommand
-    )
-
-    If (Get-Command $CheckCommand -ErrorAction SilentlyContinue) {
-        Write-Host "$PackageName Already Installed. Proceeding..." -BackgroundColor DarkGreen
-    } Else {
-        Write-Host "$PackageName Not Found. Installing..." -BackgroundColor DarkGreen
-        & $InstallCommand
-    }
-}
-
 Write-Host "Installing DeepRacer Offline for Windows [2]..."
 
 Invoke-WebRequest -Uri "https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi" -OutFile "wsl_update_x64.msi"
@@ -33,7 +18,6 @@ if ($str -eq 1) {
     Write-Host "Ubuntu 20.04 is Installed and on WSL 2."
 } else {
     Write-Host "Ubuntu 20.04 isn't installed. Installing Chocolatey and Ubuntu 20.04..."
-    Install-CommandIfNotInstalled -PackageName "Chocolatey" -CheckCommand "choco" -InstallCommand { Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) }
     choco install -y wsl-ubuntu-2004 --params "/InstallRoot:true"
 }
 

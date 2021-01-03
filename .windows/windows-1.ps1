@@ -1,4 +1,23 @@
+function Install-CommandIfNotInstalled {
+    param (
+        [String][Parameter(Mandatory=$true)]$PackageName,
+        [String][Parameter(Mandatory=$true)]$CheckCommand,
+        $InstallCommand
+    )
+
+    If (Get-Command $CheckCommand -ErrorAction SilentlyContinue) {
+        Write-Host "$PackageName Already Installed. Proceeding..." -BackgroundColor DarkGreen
+    } Else {
+        Write-Host "$PackageName Not Found. Installing..." -BackgroundColor DarkGreen
+        & $InstallCommand
+    }
+}
+
 Write-Host "Installing DeepRacer Offline for Windows [1]..."
+
+Install-CommandIfNotInstalled -PackageName "Chocolatey" -CheckCommand "choco" -InstallCommand { Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) }
+Install-CommandIfNotInstalled -PackageName "Docker" -CheckCommand "docker" -InstallCommand { choco install docker-desktop }
+Install-CommandIfNotInstalled -PackageName "Docker-Compose" -CheckCommand "docker-compose" -InstallCommand { choco install docker-compose }
 
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 
