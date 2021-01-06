@@ -7,4 +7,4 @@ Start-Process -FilePath "wsl_update_x64.msi"
     ForEach-Object {if ($_ -Match "step=") {$_ -Replace '\d+', 3 }} |
             Set-Content -Path .\.windows\.temp
 
-Write-Host "Please restart your machine now and run the windows-install.ps1 script to resume."
+Write-Host "Please restart your machine now and run the windows-install.ps1 script to resume." -BackgroundColor DarkGreen
