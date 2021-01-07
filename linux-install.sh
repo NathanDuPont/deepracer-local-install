@@ -6,8 +6,8 @@ sudo apt-get update
 sudo apt-get -y upgrade
 
 # Add Directory for DeepRacer Components
-[ ! -d "~/deepracer" ] && sudo mkdir ~/deepracer
-cd ~/deepracer
+[ ! -d "../../deepracer" ] && sudo mkdir ../../deepracer
+cd ../../deepracer
 
 # Install Components
 sudo apt-get -y install \
