@@ -104,7 +104,7 @@ The **recommended** environment is *Visual Studio Code* ([download here](https:/
 
 To start up the server, first enter the folder that deepracer-local was installed into, with the following command:
 
-`cd /deepracer/deepracer-local/`
+`cd ~/deepracer/deepracer-local/`
 
 This should take you into the install directory of the deepracer files. For more information on the repository, [visit this link](https://github.com/NathanDuPont/deepracer-local) for a full description. 
 
@@ -114,7 +114,7 @@ The most important steps of the program:
 
 In the following directory, you will find files pertaining to the model:
 
-`/deepracer/deepracer-local/data/minio/bucket/custom_files`
+`~/deepracer/deepracer-local/data/minio/bucket/custom_files`
 
 *model_metadata.json*:
 This contains the basic parameters for the vehicle. Do not change these, as we will be working with the default parameters with the final models.

@@ -6,8 +6,8 @@ sudo apt-get update
 sudo apt-get -y upgrade
 
 # Add Directory for DeepRacer Components
-[ ! -d "/deepracer" ] && sudo mkdir /deepracer
-cd /deepracer
+[ ! -d "~/deepracer" ] && sudo mkdir ~/deepracer
+cd ~/deepracer
 
 # Install Components
 sudo apt-get -y install \
@@ -39,4 +39,4 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 # Clone Git Repository
-[ ! -d "./deepracer-local" ] && sudo git clone https://github.com/NathanDuPont/deepracer-local.git
+[ ! -d "`./deepracer-local" ] && sudo git clone https://github.com/NathanDuPont/deepracer-local.git
