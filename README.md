@@ -86,6 +86,18 @@ Once all of these settings are configured, press "Apply & Restart" in the bottom
 
 ---
 
+## Setting up your Environment
+
+There are several ways to set up your development environment. If using Windows, you can either edit the files by issuing a "nano" command, followed by the name of the file you wish to edit:
+
+`nano reward.py`
+
+This will edit the file "reward.py" found in your current directory.
+
+The **recommended** environment is *Visual Studio Code* ([download here](https://code.visualstudio.com/)), with the *Remote-WSL* extension (search for ms-vscode-remote.remote-wsl in the extensions menu). While this guide will not detail the setup, [this guide from Microsoft](https://code.visualstudio.com/docs/remote/wsl) explains all details surrounding the environment setup. The primary positive of using VSCode is that it allows you to see your entire file directory easily, with an integrated bash shell for WSL.
+
+---
+
 ## Training Your Model
 
 To start up the server, first enter the folder that deepracer-local was installed into, with the following command:
@@ -96,6 +108,14 @@ This should take you into the install directory of the deepracer files. For more
 
 The most important steps of the program:
 
-1. Starting the Model
-2. Stopping the Model
-3. Exporting a Model
+**Configuring your Reward Function (and model)**
+
+In the following directory, you will find files pertaining to the model:
+
+`/deepracer/deepracer-local/data/minio/bucket/custom_files`
+
+
+
+**Starting the Model**
+**Stopping the Model**
+**Exporting a Model**
