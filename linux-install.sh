@@ -38,5 +38,8 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-
 
 sudo chmod +x /usr/local/bin/docker-compose
 
+# Set up the required Docker Network
+sudo docker network create sagemaker-local
+
 # Clone Git Repository
 [ ! -d "./deepracer-local" ] && sudo git clone https://github.com/NathanDuPont/deepracer-local.git
