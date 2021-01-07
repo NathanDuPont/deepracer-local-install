@@ -35,7 +35,7 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 
 # Install and Configure Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo cd /chmod +x /usr/local/bin/docker-compose
+sudo /chmod +x /usr/local/bin/docker-compose
 
 # Clone Git Repository
-sudo git clone https://github.com/NathanDuPont/deepracer-local.git
+[ ! -d "./deepracer-local" ] && sudo git clone https://github.com/NathanDuPont/deepracer-local.git

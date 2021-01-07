@@ -34,19 +34,68 @@ Now, type the following commands in to run the scripts. If it prompts you to giv
 `powershell Set-ExecutionPolicy Unrestricted`<br>
 `powershell .\windows-install.ps1`
 
-This will take you through installation. **Installation will require you to restart your computer if you don't currently have WSL installed**. Please follow the prompts in the install scripts.
+This will take you through installation. **Installation will require you to restart your computer if you don't currently have WSL installed**. Please follow the prompts in the install scripts, and re-run the script using the steps above as the prompts say.
 
 ---
 
 ## Installing Ubuntu
 
+If the script failed to install Ubuntu, or you already have WSL2 and want to install Ubuntu yourself, you can find it in the **Windows Store**. 
+
+Open up the Windows Store, and search for "Ubuntu 20.04". You should see the following as one of the options:
+
+![Ubuntu Listing in Windows Store](/img/ubuntu-windows-store.png)
+
+Download the distribution using the blue button in the top right. Once downloaded and installed, the button in the top right will turn to "Launch". Either press this, or press [Windows] + [S], search for "Ubuntu", and run the Ubuntu 20.04 application.
 
 ---
 
 ## Setting up Ubuntu
 
+Once installed, run the Ubuntu distribution (as described above). If this is the first time you are opening the distribution, it will need to configure itself. It will ask you for a username and password; enter these and **remember** them for later. You will need to enter this password (as the root/sudo password) later.
+
+Once the distribution has completed setup, your bash window should look something like this (of course, with your name and computer name):
+
+![Blank Ubuntu Bash Line](/img/ubuntu-shell.png)
+
+From here, run the following commands (copy and paste all at once):
+
+`mkdir temp; cd temp; git clone https://github.com/NathanDuPont/deepracer-local-install.git; cd ./deepracer-local-install; chmod +rwx *; sudo ./linux-install.sh`
 
 --- 
 
+## Configuring Docker (Windows only)
+
+For Docker to work correctly with WSL, there are a few settings you need to change. First, press [Windows] + [S] and search for "Docker Desktop". Run this and let it start up.
+
+If Docker Desktop doesn't open up in 5-10 seconds, it is still starting up. Wait a minute, search for the application again, and run it as described above. This should open up the Docker Desktop window.
+
+In the top of the window, press the settings (gear) icon. You should see a screen like this:
+
+![Docker Settings Window](/img/docker-settings-1.png)
+
+Make sure the second and third options are checked (Expose daemon and use WSL 2 based engine).
+
+Now, open up the menu under *Resources*>*WSL Integration*.
+
+![Docker WSL Settings](/img/docker-settings-2.png)
+
+Make sure "Enable Integration with my default WSL distro", is checked, along with making sure the toggle by Ubuntu-20.04. 
+
+Once all of these settings are configured, press "Apply & Restart" in the bottom right.
+
+---
+
 ## Training Your Model
 
+To start up the server, first enter the folder that deepracer-local was installed into, with the following command:
+
+`cd /deepracer/deepracer-local/`
+
+This should take you into the install directory of the deepracer files. For more information on the repository, [visit this link](https://github.com/NathanDuPont/deepracer-local) for a full description. 
+
+The most important steps of the program:
+
+1. Starting the Model
+2. Stopping the Model
+3. Exporting a Model
